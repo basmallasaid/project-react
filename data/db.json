@@ -1,0 +1,484 @@
+{
+  "accessories": [
+    {
+      "id": "1",
+      "title": "Gold Necklace",
+      "description": "Elegant gold necklace with a minimalist design.",
+      "image": "photo/Gold Necklace.jpeg",
+      "price": 199.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "2",
+      "title": "Silver Pendant",
+      "description": "Sophisticated silver pendant with a timeless design.",
+      "image": "photo/Silver Pendant.jpeg",
+      "price": 89.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "3",
+      "title": "Emerald Necklace",
+      "description": "Stunning emerald necklace with a luxurious finish.",
+      "image": "photo/Emerald Necklace.jpeg",
+      "price": 249.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "4",
+      "title": "Ruby Heart Necklace",
+      "description": "Beautiful ruby heart-shaped necklace, perfect for a romantic gift.",
+      "image": "photo/Ruby Heart Necklace.jpeg",
+      "price": 199.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "5",
+      "title": "Amethyst Choker",
+      "description": "Elegant amethyst choker with a modern twist.",
+      "image": "photo/Amethyst Choker.jpeg",
+      "price": 139.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "6",
+      "title": "Diamond Solitaire Necklace",
+      "description": "Classic diamond solitaire necklace for a touch of elegance.",
+      "image": "photo/Diamond Solitaire Necklace.jpeg",
+      "price": 299.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "7",
+      "title": "Topaz Necklace",
+      "description": "Bright topaz necklace with a striking blue hue.",
+      "image": "photo/Topaz Necklace.jpeg",
+      "price": 159.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "8",
+      "title": "Pearl Strand Necklace",
+      "description": "Classic pearl strand necklace with a timeless appeal.",
+      "image": "photo/Pearl Strand Necklace.jpeg",
+      "price": 179.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "9",
+      "title": "Turquoise Pendant",
+      "price": 169.99,
+      "category": "Necklaces",
+      "description": "Vibrant turquoise pendant on a delicate chain.",
+      "image": "photo/Turquoise Pendant.jpeg"
+    },
+    {
+      "id": "10",
+      "title": "Garnet Necklace",
+      "description": "Rich garnet necklace with a deep red sparkle.",
+      "image": "photo/Garnet Necklace.jpeg",
+      "price": 219.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "11",
+      "title": "Opal Pendant Necklace",
+      "description": "Mesmerizing opal pendant necklace with an iridescent glow.",
+      "image": "photo/Opal Pendant Necklace.jpeg",
+      "price": 239.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "12",
+      "title": "Aquamarine Necklace",
+      "description": "Elegant aquamarine necklace with a calming blue gemstone.",
+      "image": "photo/Aquamarine Necklace.jpeg",
+      "price": 229.99,
+      "category": "Necklaces"
+    },
+    {
+      "id": "13",
+      "title": "Silver Bracelet",
+      "description": "Stylish silver bracelet, perfect for any occasion.",
+      "image": "photo/Silver Bracelet.jpeg",
+      "price": 89.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "14",
+      "title": "Gold Bangle",
+      "description": "Elegant gold bangle with a classic design.",
+      "image": "photo/Gold Bangle.jpeg",
+      "price": 129.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "15",
+      "title": "Diamond Tennis Bracelet",
+      "description": "Luxurious diamond tennis bracelet with a brilliant shine.",
+      "image": "photo/Diamond Tennis Bracelet.jpeg",
+      "price": 299.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "16",
+      "title": "Emerald Cuff",
+      "description": "Stunning emerald cuff bracelet with a bold design.",
+      "image": "photo/Emerald Cuff.jpeg",
+      "price": 249.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "17",
+      "title": "Ruby Bangle",
+      "description": "Elegant ruby bangle with intricate detailing.",
+      "image": "photo/Ruby Bangle.jpeg",
+      "price": 199.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "18",
+      "title": "Silver Chain Bracelet",
+      "description": "Stylish silver chain bracelet with a modern look.",
+      "image": "photo/Silver Chain Bracelet.jpeg",
+      "price": 89.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "19",
+      "title": "Pearl Bracelet",
+      "description": "Classic pearl bracelet with a delicate charm.",
+      "image": "photo/Pearl Bracelet.jpeg",
+      "price": 159.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "20",
+      "title": "Topaz Bracelet",
+      "description": "Bright topaz bracelet with a sunny yellow hue.",
+      "image": "photo/Topaz Bracelet.jpeg",
+      "price": 109.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "21",
+      "title": "Turquoise Cuff",
+      "description": "Vibrant turquoise cuff bracelet with unique patterns.",
+      "image": "photo/Turquoise Cuff.jpeg",
+      "price": 169.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "22",
+      "title": "Garnet Bracelet",
+      "description": "Beautiful garnet bracelet with a deep red glow.",
+      "image": "photo/Garnet Bracelet.jpeg",
+      "price": 199.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "23",
+      "title": "Onyx Bangle",
+      "description": "Elegant onyx bangle with a sleek design.",
+      "image": "photo/Onyx Bangle.jpeg",
+      "price": 149.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "24",
+      "title": "Amethyst Bracelet",
+      "description": "Stunning amethyst bracelet with a vibrant purple hue.",
+      "image": "photo/Amethyst Bracelet.jpeg",
+      "price": 139.99,
+      "category": "Bracelet"
+    },
+    {
+      "id": "25",
+      "title": "Diamond Earrings",
+      "description": "Sparkling diamond earrings with a modern touch.",
+      "image": "photo/Diamond Earrings.jpeg",
+      "price": 299.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "26",
+      "title": "Gold Hoop Earrings",
+      "description": "Elegant gold hoop earrings with a minimalist design.",
+      "image": "photo/Gold Hoop Earrings.jpeg",
+      "price": 129.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "27",
+      "title": "Silver Stud Earrings",
+      "description": "Classic silver stud earrings perfect for daily wear.",
+      "image": "photo/Silver Stud Earrings.jpeg",
+      "price": 79.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "28",
+      "title": "Pearl Drop Earrings",
+      "description": "Timeless pearl drop earrings with a graceful touch.",
+      "image": "photo/Pearl Drop Earrings.jpeg",
+      "price": 149.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "29",
+      "title": "Sapphire Earrings",
+      "description": "Beautiful sapphire earrings with a deep blue hue.",
+      "image": "photo/Sapphire Earrings.jpeg",
+      "price": 189.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "30",
+      "title": "Ruby Stud Earrings",
+      "description": "Elegant ruby stud earrings with a rich red glow.",
+      "image": "photo/Ruby Stud Earrings.jpg",
+      "price": 159.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "31",
+      "title": "Emerald Drop Earrings",
+      "description": "Stunning emerald drop earrings with a vintage design.",
+      "image": "photo/Emerald Drop Earrings.jpeg",
+      "price": 229.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "32",
+      "title": "Turquoise Stud Earrings",
+      "description": "Vibrant turquoise stud earrings with a unique look.",
+      "image": "photo/Turquoise Stud Earrings.jpeg",
+      "price": 129.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "33",
+      "title": "Amethyst Earrings",
+      "description": "Elegant amethyst earrings with a deep purple hue.",
+      "image": "photo/Amethyst Earrings.jpeg",
+      "price": 179.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "34",
+      "title": "Opal Earrings",
+      "description": "Dazzling opal earrings with a stunning rainbow effect.",
+      "image": "photo/Opal Earrings.jpeg",
+      "price": 219.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "35",
+      "title": "Topaz Stud Earrings",
+      "description": "Bright topaz stud earrings with a unique shine.",
+      "image": "photo/Topaz Stud Earrings.jpeg",
+      "price": 139.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "36",
+      "title": "Butterfly Earrings",
+      "description": "Delicate butterfly earrings with intricate wing detailing, adding a whimsical and nature-inspired touch to any outfit.",
+      "image": "photo/butterfly.jpeg",
+      "price": 199.99,
+      "category": "Earrings"
+    },
+    {
+      "id": "37",
+      "title": "Pearl Ring",
+      "description": "Classic pearl ring with a vintage design.",
+      "image": "photo/Pearl Ring.jpeg",
+      "price": 159.99,
+      "category": "Ring"
+    },
+    {
+      "id": "38",
+      "title": "Diamond Solitaire Ring",
+      "description": "Elegant diamond solitaire ring with a brilliant cut.",
+      "image": "photo/Diamond Solitaire Ring.jpeg",
+      "price": 599.99,
+      "category": "Ring"
+    },
+    {
+      "id": "39",
+      "title": "Rose Gold Band",
+      "description": "Simple yet stylish rose gold band, perfect for daily wear.",
+      "image": "photo/Rose Gold Band.jpeg",
+      "price": 199.99,
+      "category": "Ring"
+    },
+    {
+      "id": "40",
+      "title": "Sapphire Engagement Ring",
+      "description": "A stunning sapphire engagement ring with a halo of diamonds.",
+      "image": "photo/Sapphire Engagement Ring.jpeg",
+      "price": 899.99,
+      "category": "Ring"
+    },
+    {
+      "id": "41",
+      "title": "Emerald Vintage Ring",
+      "description": "Vintage emerald ring with intricate details and antique finish.",
+      "image": "photo/Emerald Vintage Ring.jpeg",
+      "price": 499.99,
+      "category": "Ring"
+    },
+    {
+      "id": "42",
+      "title": "Gold Infinity Ring",
+      "description": "Classic gold infinity ring, symbolizing eternal love.",
+      "image": "photo/Gold Infinity Ring.jpeg",
+      "price": 259.99,
+      "category": "Ring"
+    },
+    {
+      "id": "43",
+      "title": "Platinum Eternity Ring",
+      "description": "Luxurious platinum eternity ring encrusted with diamonds.",
+      "image": "photo/Platinum Eternity Ring.jpeg",
+      "price": 1199.99,
+      "category": "Ring"
+    },
+    {
+      "id": "44",
+      "title": "Opal Cluster Ring",
+      "description": "Unique opal cluster ring with a rainbow of colors.",
+      "image": "photo/Opal Cluster Ring.jpeg",
+      "price": 349.99,
+      "category": "Ring"
+    },
+    {
+      "id": "45",
+      "title": "Amethyst Cocktail Ring",
+      "description": "Bold amethyst cocktail ring with a large centerpiece.",
+      "image": "photo/Amethyst Cocktail Ring.jpeg",
+      "price": 179.99,
+      "category": "Ring"
+    },
+    {
+      "id": "46",
+      "title": "Opal Stone Sun Ring",
+      "description": "a lustrous opal centerpiece surrounded by delicate rays, symbolizing warmth and new beginnings",
+      "image": "photo/Opal Stone Sun Ring.jpeg",
+      "price": 129.99,
+      "category": "Ring"
+    },
+    {
+      "id": "47",
+      "title": "Ruby Heart Ring",
+      "description": "Delicate ruby heart ring with a romantic design.",
+      "image": "photo/Ruby Heart Ring.jpeg",
+      "price": 399.99,
+      "category": "Ring"
+    },
+    {
+      "id": "48",
+      "title": "Black Onyx Statement Ring",
+      "description": "Edgy black onyx statement ring with a bold finish.",
+      "image": "photo/Black_Ring.jpeg",
+      "price": 249.99,
+      "category": "Ring"
+    },
+    {
+      "id": "49",
+      "title": "Chanel No. 5",
+      "description": "A timeless, classic fragrance known for its floral aldehyde scent, representing elegance and luxury.",
+      "image": "photo/Chanel_No5.jpeg",
+      "price": 159.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "50",
+      "title": "Dior J'adore",
+      "description": "An iconic floral fragrance, combining ylang-ylang, rose, and jasmine, embodying femininity and glamour.",
+      "image": "photo/Dior.jpeg",
+      "price": 149.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "51",
+      "title": "Tom Ford Black Orchid",
+      "description": "A luxurious, dark fragrance with black truffle, black orchid, and patchouli, perfect for those who love bold scents.",
+      "image": "photo/Tom_Ford _Black _Orchid.jpeg",
+      "price": 189.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "52",
+      "title": "Coco Perfume ",
+      "description": "A rich, sophisticated fragrance with a warm.",
+      "image": "photo/coco_Perfume.jpeg",
+      "price": 129.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "53",
+      "title": "Gucci Bloom",
+      "description": "A rich, white floral fragrance that celebrates the beauty of women with jasmine, tuberose, and Rangoon creeper.",
+      "image": "photo/Gucci _Bloom.jpeg",
+      "price": 139.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "54",
+      "title": "Jo Malone Peony & Blush Suede",
+      "description": "A luxurious fragrance with peony, red apple, and suede, offering a fresh, modern, and sophisticated scent.",
+      "image": "photo/JoMalone.jpeg",
+      "price": 169.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "55",
+      "title": "Versace Bright Crystal",
+      "description": "A fresh, fruity floral fragrance with notes of pomegranate, magnolia, and lotus flower, perfect for daywear.",
+      "image": "photo/Versace.jpeg",
+      "price": 99.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "56",
+      "title": "Marc Jacobs Daisy",
+      "description": "A playful, feminine fragrance with notes of wild strawberry, violet leaves, and jasmine, evoking youthful innocence.",
+      "image": "photo/Marc_Jacobs.jpeg",
+      "price": 89.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "57",
+      "title": "Lancôme La Vie Est Belle",
+      "description": "A sweet, elegant fragrance combining iris, jasmine, and praline, symbolizing joy and positivity.",
+      "image": "photo/Lancôme_La.jpeg",
+      "price": 139.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "58",
+      "title": "Good Girl Perfume",
+      "description": "An alluring and glamorous fragrance that blends a striking combination of floral and gourmand notes.",
+      "image": "photo/Good_Girl_Perfume.jpeg",
+      "price": 119.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "59",
+      "title": "Viktor & Rolf Flowerbomb",
+      "description": "A warm, spicy floral fragrance with jasmine, rose, orchid, and patchouli, creating an explosion of scent.",
+      "image": "photo/Flowerbom.jpeg",
+      "price": 159.99,
+      "category": "Perfume"
+    },
+    {
+      "id": "60",
+      "title": "Byredo Gypsy Water",
+      "description": "A woody aromatic fragrance with bergamot, pine needles, and vanilla, evoking a sense of wanderlust.",
+      "image": "photo/Byredo_Gypsy_Water.jpeg",
+      "price": 199.99,
+      "category": "Perfume"
+    }
+  ]
+}
