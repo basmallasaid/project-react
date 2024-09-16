@@ -20,7 +20,7 @@ body{
     background-repeat: no-repeat;
     margin: 0px;
     padding: 0px;
-    opacity: 0.7;
+    opacity: 0.8;
     
   }
 
@@ -29,16 +29,10 @@ body{
     cursor: pointer;
   }
   
-  /* .admin div{
-    margin: 15px 0px;
-  }
-  .admin label{
-    letter-spacing: 1px;
-   
-  } */
+/* login style*/
   .logback {
-    background-image: url('/public/background.jpeg');
-    height: 100vh;
+    background-image: url('/public/background2.jpeg');
+    height: 90vh;
     width: 100%;
     display:flex ;
     justify-content: center;
@@ -46,26 +40,26 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
-    opacity: 0.8;
+    opacity: 0.9;
   
   }
   .conlog {
     width: 50%;
     margin: 0 auto;
-    padding: 50px;
+    padding: 40px;
     padding-bottom: 50px;
     background-color: rgba(255,255,255,0.1);
-    margin-top: 100px;
+    margin-top: 70px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     justify-content: center;
-    color: black;
+    color:black;
    
-
+    
     
   }
   .conlog h1 ,h2 {
     text-align: center;
-    /* color: white; */
+    
   }
   .conlog label{
     font-size: 25px;
@@ -73,46 +67,56 @@ body{
   }
   .conlog p{
     font-size: 17px;
-   
+    font-weight:900px;
+   color: #000;
     
   }
-  /* Cart.css */
-.cartcontainer {
-  margin: 30px auto;
-  max-width: 1200px;
-}
-
-.cartitem {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
-}
-
-.cartitem img {
-  border-radius: 5px;
  
+  /* Cart Styles */
+.cartcontainer {
+  margin-top: 20px;
 }
 
-.cartitemdetails {
-  margin-left: 15px;
-  flex: 1;
+.cartTable {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.cartitemdetails h5 {
-  margin: 0;
+.tableHeader {
+  display: table-header-group;
+  font-weight: bold;
 }
 
-.cartitemdetails .btn {
-  margin-top: 10px;
+.tableRow {
+  display: table-row;
+}
+
+.tableCell {
+  display: table-cell;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableCell img {
+  vertical-align: middle;
 }
 
 .carttotal {
   font-weight: bold;
-  font-size: 1.5rem;
+}
+/* Empty Cart Styles */
+.emptyCart {
+  text-align: center;
   margin-top: 20px;
 }
+
+.emptyCartImage {
+  width: 30%; /* Adjust as needed */
+  height: auto;
+}
+
+  
 /* Style.module.css */
 
 .admin{
@@ -295,4 +299,31 @@ body{
 
 .footer ul li a:hover {
   text-decoration: underline;
+}
+.BestsellerImage {
+  border-radius: 8px;
+ width: 40%;
+  height: 50%;
+}
+
+.BestselleUsSection {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.BestsellerTitle {
+  margin-bottom: 30px;
+  color: #555;
+  margin-top: 30px;
+}
+
+.BestsellerParagraph {
+  line-height: 1.6;
+  color: #666;
+}
+
+/* إضافة مسافة فوق الفوتر */
+.FooterSpacing {
+  margin-top: 40px;
 }

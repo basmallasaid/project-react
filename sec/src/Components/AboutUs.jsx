@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from "../Styles/Style.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
-
+import Footer from './Footer';
 const AboutUs = () => {
     return (
+        <>
         <div className={`container ${styles.aboutuscontainer}`}>
             <div className="row">
                 <div className="col-12">
@@ -115,6 +116,8 @@ const AboutUs = () => {
             </div>
         </div>
         </div>
+        <Footer/>
+        </>
     );
 };
 

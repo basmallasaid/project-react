@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import styles from "../Styles/Style.module.css";
 
 const Admin = () => {
@@ -69,35 +70,57 @@ const Admin = () => {
     axios
       .post("http://localhost:3100/accessories", product)
       .then((res) => {
-        console.log("Product added:", res);
+        Swal.fire('Success', 'Product added successfully', 'success');
         navigate("/Getcategory");  
       })
-      .catch((err) => console.error("Error adding product:", err));
+      .catch((err) => Swal.fire('Error', 'Error adding product', 'error'));
   };
 
   // Handle editing an existing product
   const handleEdit = (e) => {
     e.preventDefault();
-    axios
-      .put(`http://localhost:3100/accessories/${product.id}`, product)
-      .then((res) => {
-        console.log("Product updated:", res);
-        alert("Are you sure you want to update it?");
-        navigate("/Getcategory");  
-      })
-      .catch((err) => console.error("Error editing product:", err));
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You are about to update this product.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, update it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .put(`http://localhost:3100/accessories/${product.id}`, product)
+          .then((res) => {
+            Swal.fire('Updated!', 'Product has been updated.', 'success');
+            navigate("/Getcategory");  
+          })
+          .catch((err) => Swal.fire('Error', 'Error updating product', 'error'));
+      }
+    });
   };
 
   // Handle deleting a product
   const handleDelete = () => {
-    axios
-      .delete(`http://localhost:3100/accessories/${product.id}`)
-      .then((res) => {
-        console.log("Product deleted:", res);
-        alert("Are you sure you want to delete it?");
-        navigate("/Getcategory");  
-      })
-      .catch((err) => console.error("Error deleting product:", err));
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3100/accessories/${product.id}`)
+          .then((res) => {
+            Swal.fire('Deleted!', 'Product has been deleted.', 'success');
+            navigate("/Getcategory");  
+          })
+          .catch((err) => Swal.fire('Error', 'Error deleting product', 'error'));
+      }
+    });
   };
 
   return (
