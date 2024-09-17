@@ -1,19 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../ContextAPIS/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
-
 function Navbar() {
-  const { cart } = useContext(CartContext);
+  const { cart, handleLogout } = useContext(CartContext); // Access handleLogout from CartContext
   const navigate = useNavigate();
-  
-  // Get the adminToken from localStorage
+  const [username, setUsername] = useState(null);
+
+  // Get the adminToken and username from localStorage
   const adminToken = localStorage.getItem("adminToken");
-  
-  // Function to handle admin logout
-  const handleLogout = () => {
-    localStorage.removeItem("adminToken");
-    navigate("/Login"); // Redirect to Login page after logout
+
+  // Handle user logout
+  const logout = () => {
+    handleLogout(); 
+    navigate("/Login"); 
   };
+
+  // Check if the user is logged in and update the username state
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername); // Set the username if found in localStorage
+    }
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -60,7 +68,6 @@ function Navbar() {
                 <li><Link className="dropdown-item" to="/Ring">Ring</Link></li>
               </ul>
             </li>
-
             <li className="nav-item">
               <Link className="nav-link" to="/about">
                 About Us
@@ -75,19 +82,25 @@ function Navbar() {
             )}
           </ul>
 
-          {adminToken ? ( // Show Logout if adminToken is present
-            <button
-              className="btn btn-outline-light"
-              onClick={handleLogout}
-              style={{ justifySelf: "right", margin: "0px 15px" }}
-            >
-              Logout
-            </button>
-          ) : (
+          {username ? ( // Show username if logged in
+            <>
+              <span className="navbar-text me-3">
+                Welcome, {username}
+              </span>
+              <button
+                className="btn btn-outline-light"
+                onClick={logout}
+                style={{ justifySelf: "right", margin: "0px 15px" }}
+              >
+                Logout
+              </button>
+            </>
+          ) : ( // Show Login button if not logged in
             <Link className="btn btn-outline-light" type="submit" style={{ justifySelf: "right", margin: "0px 15px" }} to="/Login">
               Login
             </Link>
           )}
+          
           <Link to="/Cart" className="btn btn-outline-light" type="submit" style={{ position: 'relative' }}>
             Cart {" "}
             <svg
@@ -97,7 +110,6 @@ function Navbar() {
               fill="currentColor"
               className="bi bi-cart"
               viewBox="0 0 16 16"
-              
             >
               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
             </svg>

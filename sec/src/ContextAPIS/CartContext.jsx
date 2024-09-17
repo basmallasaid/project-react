@@ -1,6 +1,6 @@
-// ContextAPIS/CartContext.jsx
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { Snackbar, Alert } from '@mui/material';
+import Swal from 'sweetalert2';
 
 export const CartContext = createContext();
 
@@ -9,21 +9,69 @@ export const CartProvider = ({ children }) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
 
+  useEffect(() => {
+    const userToken = localStorage.getItem('userToken');
+    const adminToken = localStorage.getItem('adminToken');
+    if (userToken) {
+      const savedCart = localStorage.getItem(`cart_${userToken}`);
+      if (savedCart) {
+        setCart(JSON.parse(savedCart)); // Load user cart from localStorage
+      }
+    } else if (adminToken) {
+      const savedCart = localStorage.getItem('admin_cart');
+      if (savedCart) {
+        setCart(JSON.parse(savedCart)); // Load admin cart from localStorage
+      }
+    } else {
+      setCart([]); // Clear the cart if no user or admin is logged in
+    }
+  }, []); // Run only on component mount
+  
+  const updateLocalStorage = (cartItems) => {
+    const userToken = localStorage.getItem('userToken');
+    const adminToken = localStorage.getItem('adminToken');
+    if (userToken) {
+      localStorage.setItem(`cart_${userToken}`, JSON.stringify(cartItems)); // Store user cart in localStorage
+    } else if (adminToken) {
+      localStorage.setItem('admin_cart', JSON.stringify(cartItems)); // Store admin cart in localStorage
+    }
+  };
+  
+
   const addToCart = (product) => {
+    const userToken = localStorage.getItem('userToken'); // Check if user is logged in
+
+    if (!userToken) {
+      // If user is not logged in, show login prompt
+      Swal.fire({
+        title: 'Not Logged In',
+        text: 'Please log in to add items to your cart.',
+        icon: 'warning',
+        confirmButtonText: 'Login',
+      }).then(() => {
+        // Redirect or show login prompt
+        window.location.href = '/Login'; // Redirect to login page
+      });
+      return;
+    }
+
+    // If user is logged in, proceed with adding to cart
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
+      let updatedCart;
       if (existingProduct) {
-        const updatedCart = prevCart.map((item) =>
+        updatedCart = prevCart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
         showSnackbar('Item quantity increased in cart!');
-        return updatedCart;
       } else {
+        updatedCart = [...prevCart, { ...product, quantity: 1 }];
         showSnackbar('Item added to cart!');
-        return [...prevCart, { ...product, quantity: 1 }];
       }
+      updateLocalStorage(updatedCart); // Update localStorage
+      return updatedCart;
     });
   };
 
@@ -31,6 +79,7 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.filter((item) => item.id !== productId);
       showSnackbar('Item removed from cart!');
+      updateLocalStorage(updatedCart); // Update localStorage
       return updatedCart;
     });
   };
@@ -43,6 +92,7 @@ export const CartProvider = ({ children }) => {
           : item
       );
       showSnackbar('Item quantity increased!');
+      updateLocalStorage(updatedCart); // Update localStorage
       return updatedCart;
     });
   };
@@ -55,6 +105,7 @@ export const CartProvider = ({ children }) => {
           : item
       );
       showSnackbar('Item quantity decreased!');
+      updateLocalStorage(updatedCart); // Update localStorage
       return updatedCart;
     });
   };
@@ -75,9 +126,27 @@ export const CartProvider = ({ children }) => {
     setSnackbarOpen(false);
   };
 
+  const clearCart = () => {
+    setCart([]); // Clear cart state
+    const userToken = localStorage.getItem('userToken');
+    if (userToken) {
+      localStorage.removeItem(`cart_${userToken}`); // Remove the cart data for the user
+    }
+  };
+
+  // Handle user logout
+  const handleLogout = () => {
+    clearCart(); // Clear the cart
+    localStorage.removeItem('userToken'); // Remove user token
+    localStorage.removeItem('adminToken'); // Remove admin token
+    localStorage.removeItem('username'); // Remove username or any other user-related data
+    window.location.href = '/Login'; // Redirect to login page
+  };
+  
+
   return (
     <CartContext.Provider
-      value={{ cart, setCart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, calculateTotal }}
+      value={{ cart, setCart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, calculateTotal, clearCart, handleLogout }}
     >
       {children}
       <Snackbar

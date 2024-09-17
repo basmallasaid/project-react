@@ -1,6 +1,4 @@
-
 import './App.css';
-
 import StanderErrorBoundary from './Components/Error/StanderErorrBoundary';
 import Getcategory from './Components/category';
 import 'bootstrap/dist/css/bootstrap.min.css';

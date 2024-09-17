@@ -1,31 +1,91 @@
-// components/Cart.jsx
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../ContextAPIS/CartContext';
-import styles from "../Styles/Style.module.css";
+import { useNavigate } from 'react-router-dom'; // For redirection
 import Swal from 'sweetalert2';
 import { Snackbar, Alert } from '@mui/material';
+import styles from "../Styles/Style.module.css";
 
 const Cart = () => {
-  const { cart, setCart, increaseQuantity, decreaseQuantity, removeFromCart, calculateTotal } = useContext(CartContext);
+  const { cart, setCart, increaseQuantity, decreaseQuantity, removeFromCart, calculateTotal, clearCart } = useContext(CartContext);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+  const navigate = useNavigate();
+  
+  const userToken = localStorage.getItem('userToken'); // Check if user is logged in
+  const userEmail = localStorage.getItem('userEmail'); // Assuming email is stored in localStorage after login
 
+  // Retrieve the cart for the logged-in user from localStorage
+  useEffect(() => {
+    if (userEmail) {
+      const savedCart = localStorage.getItem(`cart_${userEmail}`);
+      if (savedCart) {
+        try {
+          const parsedCart = JSON.parse(savedCart);
+          if (Array.isArray(parsedCart)) {
+            setCart(parsedCart); // Set the cart state with saved cart items
+          }
+        } catch (error) {
+          console.error("Error parsing cart data from localStorage:", error);
+        }
+      }
+    }
+  }, [userEmail, setCart]);
+
+  // Store the updated cart for the logged-in user in localStorage
+  useEffect(() => {
+    if (userEmail && cart.length > 0) {
+      localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart)); // Save cart to localStorage
+    } else if (userEmail && cart.length === 0) {
+      localStorage.removeItem(`cart_${userEmail}`); // Clear cart from localStorage if empty
+    }
+  }, [cart, userEmail]);
+
+  // Handle checkout process with login check
   const handleCheckout = () => {
+    if (!userToken) {
+      Swal.fire({
+        title: 'Not Logged In',
+        text: 'Please log in to proceed with checkout',
+        icon: 'warning',
+        confirmButtonText: 'Login'
+      }).then(() => {
+        navigate('/Login'); // Redirect to login page if not logged in
+      });
+    } else {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to proceed with the payment?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, proceed!',
+        cancelButtonText: 'No, cancel!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const totalAmount = calculateTotal().toFixed(2);
+          setSnackbarMessage(`Invoice Total: $${totalAmount}. Transaction successful.`);
+          setSnackbarOpen(true);
+
+          // Clear the cart after successful checkout
+          clearCart(); // Clear the cart in CartContext
+          localStorage.removeItem(`cart_${userEmail}`); // Clear the user's cart from localStorage
+        }
+      });
+    }
+  };
+
+  const handleRemoveFromCart = (itemId) => {
     Swal.fire({
       title: 'Are you sure?',
-      text: "Do you want to proceed with the payment?",
-      icon: 'question',
+      text: "Do you want to remove this item from the cart?",
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, proceed!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: 'Yes, remove it!',
+      cancelButtonText: 'No, keep it',
     }).then((result) => {
       if (result.isConfirmed) {
-        const totalAmount = calculateTotal().toFixed(2);
-        setSnackbarMessage(`Invoice Total: $${totalAmount}. Transaction successful.`);
+        removeFromCart(itemId); // Remove the item from the cart
+        setSnackbarMessage('Item removed from cart.');
         setSnackbarOpen(true);
-
-        // Clear the cart
-        setCart([]);
       }
     });
   };
@@ -87,7 +147,7 @@ const Cart = () => {
               <div className={`${styles.tableCell}`}>
                 <button
                   className="btn btn-danger"
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => handleRemoveFromCart(item.id)}
                 >
                   Remove
                 </button>
