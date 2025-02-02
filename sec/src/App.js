@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Perfume from './Components/Perfume';
 import Notfound from './Components/Notfound';
-import Home from './Components/HomePage';
+import Home from './Components/HomePage.jsx'
 import Necklaces from './Components/Necklaces';
 import Bracelet from './Components/Bracelet';
 import Earrings from './Components/Earrings';
@@ -28,7 +28,7 @@ function App() {
         <BrowserRouter>
           
           <Routes>
-            <Route path="/" element={<> <Navbar/><Home /></>} />
+            <Route path="/" element={<> <Navbar/><Home/></>} />
             <Route path="/Home" element={<> <Navbar/><Home /></>} />
             <Route path="/about" element={<> <Navbar/><AboutUs /></>} />
             <Route path="/Getcategory" element={ <> <Navbar/><Getcategory /></>} />
@@ -41,6 +41,7 @@ function App() {
             <Route path="/Login" element={<><Navbar/><Login /></>} />
             <Route path="/SignUp" element={<><Navbar/><SignUp /></>} />
             <Route path="/Cart" element={<><Navbar/><Cart /></>} />
+            
             
            
             <Route path="/AdminDashboard" element={

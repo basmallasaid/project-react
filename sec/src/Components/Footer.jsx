@@ -1,8 +1,7 @@
 // Footer.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from "../Styles/Style.module.css"; // تأكد من استخدام المسار الصحيح لملف CSS
-
+import styles from "../Styles/Style.module.css"; 
 const Footer = () => {
     return (
       <footer className={`bg-dark text-white ${styles.footer}`}>

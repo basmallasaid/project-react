@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { CartContext } from "../ContextAPIS/CartContext"; // Import the Cart context
+import { CartContext } from "../ContextAPIS/CartContext"; 
 
 const Perfume = () => {
-  const { addToCart } = useContext(CartContext); // Access the addToCart function from the context
+  const { addToCart } = useContext(CartContext); 
   const [todos, setTodos] = useState([]);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(6);
@@ -82,7 +82,7 @@ const Perfume = () => {
                 </Link>
                 <button className="btn btn-dark" onClick={() => addToCart(item)}>
                   Add To Cart
-                </button> {/* Add item to cart */}
+                </button> 
               </div>
             </div>
           </div>

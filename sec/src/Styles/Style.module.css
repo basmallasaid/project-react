@@ -10,6 +10,12 @@ body{
    scroll-behavior: smooth;
     
  }
+ /* .hometext{
+  position: relative;
+  top:450px;
+  left:500px;
+  color:#000;
+ } */
 
  .back {
     background-image: url('/public/background.jpeg'); 
@@ -112,7 +118,7 @@ body{
 }
 
 .emptyCartImage {
-  width: 30%; /* Adjust as needed */
+  width: 30%; 
   height: auto;
 }
 
@@ -227,7 +233,7 @@ body{
 .aboutusimage {
   max-width: 100%;
   height: auto;
-  border-radius: 8px; /* Optional: for rounded corners */
+  border-radius: 8px; 
 }
 
 .aboutussection {
@@ -236,34 +242,34 @@ body{
 
 .socialMedia {
   display: flex;
-  flex-direction: column; /* Stacks children vertically by default */
-  align-items: center; /* Center align the content */
+  flex-direction: column; 
+  align-items: center; 
   margin: 50px;
 }
 
 .icons {
-  display: flex; /* Aligns child elements side by side */
-  gap: 10px; /* Space between icons */
+  display: flex; 
+  gap: 10px; 
 }
 
 .icons a {
-  color: #000; /* Default icon color */
+  color: #000;
 }
 
 .bifacebook {
-  color: #4267B2; /* Facebook color */
+  color: #4267B2; 
 }
 
 .biwhatsapp {
-  color: #25D366; /* WhatsApp color */
+  color: #25D366; 
 }
 
 .biinstagram {
-  color: #C13584; /* Instagram color */
+  color: #C13584;
 }
 
 .bitwitter {
-  color: #1DA1F2; /* Twitter color */
+  color: #1DA1F2; 
 }
 
 /* footer Style.module.css */
@@ -272,6 +278,7 @@ body{
   padding: 20px 0;
   background-color: #333;
   color: #fff;
+  width: 100%;
 }
 
 .footer h5 {
@@ -302,7 +309,7 @@ body{
 }
 .BestsellerImage {
   border-radius: 8px;
- width: 40%;
+  width: 40%;
   height: 50%;
 }
 
@@ -323,7 +330,7 @@ body{
   color: #666;
 }
 
-/* إضافة مسافة فوق الفوتر */
+
 .FooterSpacing {
   margin-top: 40px;
 }

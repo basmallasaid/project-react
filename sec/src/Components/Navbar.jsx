@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../ContextAPIS/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 function Navbar() {
-  const { cart, handleLogout } = useContext(CartContext); // Access handleLogout from CartContext
+  const { cart, handleLogout } = useContext(CartContext); 
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
 
@@ -15,11 +15,11 @@ function Navbar() {
     navigate("/Login"); 
   };
 
-  // Check if the user is logged in and update the username state
+  
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
-      setUsername(storedUsername); // Set the username if found in localStorage
+      setUsername(storedUsername); 
     }
   }, []);
 
@@ -73,7 +73,7 @@ function Navbar() {
                 About Us
               </Link>
             </li>
-            {adminToken && ( // Render the Admin link only if adminToken is present
+            {adminToken && ( 
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/AdminDashboard">
                   Admin
@@ -82,7 +82,7 @@ function Navbar() {
             )}
           </ul>
 
-          {username ? ( // Show username if logged in
+          {username ? ( 
             <>
               <span className="navbar-text me-3">
                 Welcome, {username}
@@ -95,7 +95,7 @@ function Navbar() {
                 Logout
               </button>
             </>
-          ) : ( // Show Login button if not logged in
+          ) : ( 
             <Link className="btn btn-outline-light" type="submit" style={{ justifySelf: "right", margin: "0px 15px" }} to="/Login">
               Login
             </Link>

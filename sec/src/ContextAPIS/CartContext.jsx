@@ -15,47 +15,47 @@ export const CartProvider = ({ children }) => {
     if (userToken) {
       const savedCart = localStorage.getItem(`cart_${userToken}`);
       if (savedCart) {
-        setCart(JSON.parse(savedCart)); // Load user cart from localStorage
+        setCart(JSON.parse(savedCart)); 
       }
     } else if (adminToken) {
       const savedCart = localStorage.getItem('admin_cart');
       if (savedCart) {
-        setCart(JSON.parse(savedCart)); // Load admin cart from localStorage
+        setCart(JSON.parse(savedCart)); 
       }
     } else {
-      setCart([]); // Clear the cart if no user or admin is logged in
+      setCart([]); 
     }
-  }, []); // Run only on component mount
+  }, []); 
   
   const updateLocalStorage = (cartItems) => {
     const userToken = localStorage.getItem('userToken');
     const adminToken = localStorage.getItem('adminToken');
     if (userToken) {
-      localStorage.setItem(`cart_${userToken}`, JSON.stringify(cartItems)); // Store user cart in localStorage
+      localStorage.setItem(`cart_${userToken}`, JSON.stringify(cartItems)); 
     } else if (adminToken) {
-      localStorage.setItem('admin_cart', JSON.stringify(cartItems)); // Store admin cart in localStorage
+      localStorage.setItem('admin_cart', JSON.stringify(cartItems)); 
     }
   };
   
 
   const addToCart = (product) => {
-    const userToken = localStorage.getItem('userToken'); // Check if user is logged in
+    const userToken = localStorage.getItem('userToken'); 
 
     if (!userToken) {
-      // If user is not logged in, show login prompt
+     
       Swal.fire({
         title: 'Not Logged In',
         text: 'Please log in to add items to your cart.',
         icon: 'warning',
         confirmButtonText: 'Login',
       }).then(() => {
-        // Redirect or show login prompt
-        window.location.href = '/Login'; // Redirect to login page
+       
+        window.location.href = '/Login'; 
       });
       return;
     }
 
-    // If user is logged in, proceed with adding to cart
+    
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
       let updatedCart;
@@ -70,7 +70,7 @@ export const CartProvider = ({ children }) => {
         updatedCart = [...prevCart, { ...product, quantity: 1 }];
         showSnackbar('Item added to cart!');
       }
-      updateLocalStorage(updatedCart); // Update localStorage
+      updateLocalStorage(updatedCart); 
       return updatedCart;
     });
   };
@@ -79,7 +79,7 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.filter((item) => item.id !== productId);
       showSnackbar('Item removed from cart!');
-      updateLocalStorage(updatedCart); // Update localStorage
+      updateLocalStorage(updatedCart); 
       return updatedCart;
     });
   };
@@ -92,7 +92,7 @@ export const CartProvider = ({ children }) => {
           : item
       );
       showSnackbar('Item quantity increased!');
-      updateLocalStorage(updatedCart); // Update localStorage
+      updateLocalStorage(updatedCart); 
       return updatedCart;
     });
   };
@@ -127,20 +127,20 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    setCart([]); // Clear cart state
+    setCart([]); 
     const userToken = localStorage.getItem('userToken');
     if (userToken) {
-      localStorage.removeItem(`cart_${userToken}`); // Remove the cart data for the user
+      localStorage.removeItem(`cart_${userToken}`);
     }
   };
 
   // Handle user logout
   const handleLogout = () => {
-    clearCart(); // Clear the cart
-    localStorage.removeItem('userToken'); // Remove user token
-    localStorage.removeItem('adminToken'); // Remove admin token
-    localStorage.removeItem('username'); // Remove username or any other user-related data
-    window.location.href = '/Login'; // Redirect to login page
+    clearCart(); 
+    localStorage.removeItem('userToken'); 
+    localStorage.removeItem('adminToken'); 
+    localStorage.removeItem('username'); 
+    window.location.href = '/Login';
   };
   
 

@@ -4,23 +4,23 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../ContextAPIS/CartContext";
 
 const Bracelet = () => {
-  const { addToCart } = useContext(CartContext); // Access the CartContext
-  const [todos, setTodos] = useState([]); // State for storing fetched data
-  const [min, setMin] = useState(0); // State for pagination
-  const [max, setMax] = useState(6); // State for pagination
+  const { addToCart } = useContext(CartContext); 
+  const [todos, setTodos] = useState([]); 
+  const [min, setMin] = useState(0); 
+  const [max, setMax] = useState(6); 
 
   useEffect(() => {
     axios
       .get("http://localhost:3100/accessories")
       .then((res) => {
         if (Array.isArray(res.data)) {
-          setTodos(res.data); // Store fetched data in state
+          setTodos(res.data); 
         } else {
           console.error("Unexpected data format:", res.data);
         }
       })
       .catch((err) => console.log("Error fetching data:", err));
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
   const nextToDos = () => {
     setMin((prevMin) => {
@@ -29,7 +29,7 @@ const Bracelet = () => {
       const totalItems = todos.filter((item) => item.category === "Bracelet").length;
 
       if (newMin >= totalItems) {
-        return { min: 0, max: 6 }; // Reset to initial if out of bounds
+        return { min: 0, max: 6 }; 
       }
 
       setMax(newMax);

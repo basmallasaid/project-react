@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 const Notfound = () => {
   const navigate = useNavigate();
 
-  // Handle navigation back to Home
   const handleNav = () => {
     navigate("/Home");
   };

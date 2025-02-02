@@ -4,25 +4,25 @@ import axios from "axios";
 import { CartContext } from "../ContextAPIS/CartContext";
 
 const ProductDetails = () => {
-  const { addToCart } = useContext(CartContext); // Access the CartContext
-  const { id } = useParams(); // Get product ID from the URL
-  const [product, setProduct] = useState(null); // State to hold the product details
+  const { addToCart } = useContext(CartContext); 
+  const { id } = useParams(); 
+  const [product, setProduct] = useState(null); 
 
   useEffect(() => {
     const getproid = () => {
       axios
         .get(`http://localhost:3100/accessories/${id}`)
         .then((response) => {
-          setProduct(response.data); // Store product data
+          setProduct(response.data); 
         })
         .catch((error) => {
           console.error("Error fetching product data:", error);
         });
     };
     getproid();
-  }, [id]); // Re-fetch data when the ID changes
+  }, [id]); 
 
-  if (!product) return <div>Loading...</div>; // Show loading if product data is not yet available
+  if (!product) return <div>Loading...</div>; 
 
   const { price, description, title, image } = product;
 
@@ -52,7 +52,7 @@ const ProductDetails = () => {
                 <th>Image</th>
                 <td>
                   <img
-                    src={`/${image}`} // Ensure image is fetched correctly
+                    src={`/${image}`} 
                     alt={title}
                     style={{ height: "200px", width: "200px", objectFit: "cover" }}
                   />
@@ -66,7 +66,7 @@ const ProductDetails = () => {
         <button
           className="btn btn-dark"
           style={{ width: "50%" }}
-          onClick={() => addToCart(product)} // Add product to cart
+          onClick={() => addToCart(product)}
         >
           Add To Cart
           <svg

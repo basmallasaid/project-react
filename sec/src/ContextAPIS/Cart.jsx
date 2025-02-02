@@ -11,10 +11,10 @@ const Cart = () => {
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const navigate = useNavigate();
   
-  const userToken = localStorage.getItem('userToken'); // Check if user is logged in
-  const userEmail = localStorage.getItem('userEmail'); // Assuming email is stored in localStorage after login
+  const userToken = localStorage.getItem('userToken'); 
+  const userEmail = localStorage.getItem('userEmail'); 
 
-  // Retrieve the cart for the logged-in user from localStorage
+ 
   useEffect(() => {
     if (userEmail) {
       const savedCart = localStorage.getItem(`cart_${userEmail}`);
@@ -22,7 +22,7 @@ const Cart = () => {
         try {
           const parsedCart = JSON.parse(savedCart);
           if (Array.isArray(parsedCart)) {
-            setCart(parsedCart); // Set the cart state with saved cart items
+            setCart(parsedCart); 
           }
         } catch (error) {
           console.error("Error parsing cart data from localStorage:", error);
@@ -31,16 +31,16 @@ const Cart = () => {
     }
   }, [userEmail, setCart]);
 
-  // Store the updated cart for the logged-in user in localStorage
+ 
   useEffect(() => {
     if (userEmail && cart.length > 0) {
-      localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart)); // Save cart to localStorage
+      localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cart)); 
     } else if (userEmail && cart.length === 0) {
-      localStorage.removeItem(`cart_${userEmail}`); // Clear cart from localStorage if empty
+      localStorage.removeItem(`cart_${userEmail}`); 
     }
   }, [cart, userEmail]);
 
-  // Handle checkout process with login check
+ 
   const handleCheckout = () => {
     if (!userToken) {
       Swal.fire({
@@ -49,7 +49,7 @@ const Cart = () => {
         icon: 'warning',
         confirmButtonText: 'Login'
       }).then(() => {
-        navigate('/Login'); // Redirect to login page if not logged in
+        navigate('/Login'); 
       });
     } else {
       Swal.fire({
@@ -65,9 +65,9 @@ const Cart = () => {
           setSnackbarMessage(`Invoice Total: $${totalAmount}. Transaction successful.`);
           setSnackbarOpen(true);
 
-          // Clear the cart after successful checkout
-          clearCart(); // Clear the cart in CartContext
-          localStorage.removeItem(`cart_${userEmail}`); // Clear the user's cart from localStorage
+         
+          clearCart(); 
+          localStorage.removeItem(`cart_${userEmail}`); 
         }
       });
     }
@@ -83,7 +83,7 @@ const Cart = () => {
       cancelButtonText: 'No, keep it',
     }).then((result) => {
       if (result.isConfirmed) {
-        removeFromCart(itemId); // Remove the item from the cart
+        removeFromCart(itemId); 
         setSnackbarMessage('Item removed from cart.');
         setSnackbarOpen(true);
       }

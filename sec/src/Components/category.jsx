@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../ContextAPIS/CartContext";
 
 function Getcategory() {
-  const { addToCart } = useContext(CartContext); // استخدام الدالة addToCart من السياق
+  const { addToCart } = useContext(CartContext); 
   const [todos, setTodos] = useState([]);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(6);

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../ContextAPIS/CartContext";
 
 const Earrings = () => {
-  const { addToCart } = useContext(CartContext); // Access the addToCart function from CartContext
+  const { addToCart } = useContext(CartContext); 
   const [todos, setTodos] = useState([]);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(6);
@@ -15,13 +15,13 @@ const Earrings = () => {
       .get("http://localhost:3100/accessories")
       .then((res) => {
         if (Array.isArray(res.data)) {
-          setTodos(res.data); // Store data in state
+          setTodos(res.data); 
         } else {
           console.error("Unexpected data format:", res.data);
         }
       })
       .catch((err) => console.log("Error fetching data:", err));
-  }, []); // Empty dependency array ensures this runs once on mount
+  }, []); 
 
   const nextToDos = () => {
     const totalItems = todos.filter((item) => item.category === "Earrings").length;
@@ -29,7 +29,7 @@ const Earrings = () => {
     const newMax = max + 6;
     
     if (newMin >= totalItems) {
-      setMin(0); // Reset pagination when end is reached
+      setMin(0); 
       setMax(6);
     } else {
       setMin(newMin);
@@ -76,7 +76,7 @@ const Earrings = () => {
                 </Link>
                 <button
                   className="btn btn-dark"
-                  onClick={() => addToCart(item)} // Add item to cart
+                  onClick={() => addToCart(item)} 
                 >
                   Add To Cart
                 </button>
@@ -89,7 +89,7 @@ const Earrings = () => {
         <button
           className="btn btn-dark"
           onClick={prevToDos}
-          disabled={min === 0} // Disable when on first page
+          disabled={min === 0} 
         >
           Previous
         </button>

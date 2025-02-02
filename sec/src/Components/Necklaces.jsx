@@ -4,33 +4,33 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../ContextAPIS/CartContext";
 
 const Necklaces = () => {
-  const { addToCart } = useContext(CartContext); // Access CartContext for adding items to the cart
-  const [todos, setTodos] = useState([]); // State to hold the fetched data
-  const [min, setMin] = useState(0); // State to handle pagination min
-  const [max, setMax] = useState(6); // State to handle pagination max
+  const { addToCart } = useContext(CartContext); 
+  const [todos, setTodos] = useState([]); 
+  const [min, setMin] = useState(0); 
+  const [max, setMax] = useState(6); 
 
-  // Fetch data when component mounts
+
   useEffect(() => {
     axios
       .get("http://localhost:3100/accessories")
       .then((res) => {
         if (Array.isArray(res.data)) {
-          setTodos(res.data); // Store data in state
+          setTodos(res.data);
         } else {
           console.error("Unexpected data format:", res.data);
         }
       })
       .catch((err) => console.log("Error fetching data:", err));
-  }, []); // Empty dependency array ensures it runs only once when the component mounts
+  }, []); 
 
-  // Handle next page of items
+  
   const nextToDos = () => {
     const totalItems = todos.filter((item) => item.category === "Necklaces").length;
     const newMin = min + 6;
     const newMax = max + 6;
     
     if (newMin >= totalItems) {
-      setMin(0); // Reset to the beginning when you reach the end
+      setMin(0); 
       setMax(6);
     } else {
       setMin(newMin);
@@ -38,13 +38,12 @@ const Necklaces = () => {
     }
   };
 
-  // Handle previous page of items
+  
   const prevToDos = () => {
     setMin(Math.max(min - 6, 0));
     setMax(Math.max(max - 6, 6));
   };
 
-  // Filter the items by category "Necklaces"
   const filteredTodos = todos.filter((item) => item.category === "Necklaces");
 
   return (
@@ -79,7 +78,7 @@ const Necklaces = () => {
                 </Link>
                 <button
                   className="btn btn-dark"
-                  onClick={() => addToCart(item)} // Add item to the cart
+                  onClick={() => addToCart(item)} 
                 >
                   Add To Cart
                 </button>
@@ -92,7 +91,7 @@ const Necklaces = () => {
         <button
           className="btn btn-dark"
           onClick={prevToDos}
-          disabled={min === 0} // Disable when on the first page
+          disabled={min === 0} 
         >
           Previous
         </button>

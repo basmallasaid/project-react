@@ -10,43 +10,42 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Handle sign up logic
+ 
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Check if passwords match
+  
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
 
-    // Clear error if any
+   
     setError("");
 
-    // Get existing users from localStorage
+    
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Check if the email is already registered
+   
     const existingUser = users.find((user) => user.email === email);
     if (existingUser) {
       setError("This email is already registered");
       return;
     }
 
-    // Create a new user object
+   
     const newUser = {
       name,
       email,
       password,
     };
 
-    // Add the new user to the users array
+   
     users.push(newUser);
 
-    // Save the updated users array back to localStorage
     localStorage.setItem("users", JSON.stringify(users));
 
-    // Navigate to login page after successful sign up
+    
     navigate("/Login");
   };
 

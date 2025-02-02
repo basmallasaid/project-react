@@ -479,6 +479,14 @@
       "image": "photo/Byredo_Gypsy_Water.jpeg",
       "price": 199.99,
       "category": "Perfume"
+    },
+    {
+      "id": "61",
+      "title": "to",
+      "price": 299.99,
+      "category": "Necklaces",
+      "description": "Classic diamond solitaire necklace for a touch of elegance.",
+      "image": "photo/Diamond Solitaire Necklace.jpeg"
     }
   ]
 }

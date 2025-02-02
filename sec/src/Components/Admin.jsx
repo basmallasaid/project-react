@@ -16,17 +16,16 @@ const Admin = () => {
 
   let navigate = useNavigate();
 
-  // Redirect if not admin (without role)
+  
   useEffect(() => {
     const role = localStorage.getItem("role");
 
-    // If role is not admin, redirect to login
+    
     if (role !== "admin") {
       navigate("/Login");
     }
   }, [navigate]);
 
-  // Fetch product by id
   useEffect(() => {
     if (product.id) {
       axios
@@ -45,7 +44,7 @@ const Admin = () => {
     }
   }, [product.id]);
 
-  // Count the total products (optional)
+  
   useEffect(() => {
     axios.get("http://localhost:3100/accessories")
       .then((res) => {
@@ -55,7 +54,7 @@ const Admin = () => {
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
 
-  // Handle form input change
+  
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setProduct((old) => ({
@@ -64,7 +63,7 @@ const Admin = () => {
     }));
   }, []);
 
-  // Handle adding a product
+  
   const handleAdd = (e) => {
     e.preventDefault();
     axios
@@ -76,7 +75,7 @@ const Admin = () => {
       .catch((err) => Swal.fire('Error', 'Error adding product', 'error'));
   };
 
-  // Handle editing an existing product
+  
   const handleEdit = (e) => {
     e.preventDefault();
     Swal.fire({
@@ -207,7 +206,7 @@ const Admin = () => {
                 type="button"
                 onClick={handleEdit}
                 style={{ width: "150px" }}
-                disabled={!product.id}  // Disable edit if no ID
+                disabled={!product.id}  
               >
                 Edit
               </button>
@@ -216,7 +215,7 @@ const Admin = () => {
                 type="button"
                 onClick={handleDelete}
                 style={{ width: "150px" }}
-                disabled={!product.id}  // Disable delete if no ID
+                disabled={!product.id}  
               >
                 Delete
               </button>
